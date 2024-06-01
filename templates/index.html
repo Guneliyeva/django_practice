@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block body%}
+<h1>Hi Guys</h1>
+<a href="{url 'about'}">haqqimizda</a> <br>   <!--name tegi ile 'adlandirmaya' gore cagrilir url faylindan-->
+<a href="{% url 'about-details' %}">haqqimizda detallar</a>
+
+{% include 'include.html'%}    <!--eyni bir kodu her sehifede tekrarlamamaq qisa yol-->
+
+
+<script src="{%static 'app.js'%}"></script> <!--js dosyasini tanimlama-->
+
+{%endblock body%}
