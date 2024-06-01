@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home_page, about_page, about_details
+from article.views import article, article_page
 
 urlpatterns = [
     path("", home_page),
     path('about/', include("home.urls")),
+    path('article/', article,  name="article"), 
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Article</title>
+  </head>
+  <body>
+    <div class="Meqaleler">
+      <h1>Meqaleler</h1>
+      <ul>
+        {% for article in articles %}
+        <li>
+          <h3>{{article.author}}</h3>
+          <h4>{{article.title}}</h4>
+          <p>{{article.description}}</p>
+          <small>{{article.created_date}}</small>
+
+        </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

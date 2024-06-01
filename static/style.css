@@ -1,3 +1,21 @@
-body{
-    background-color: aqua;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: teal;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+a {
+    font-size: 30px; 
+    color: white;
 }

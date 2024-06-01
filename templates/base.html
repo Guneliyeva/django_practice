@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static "style.css"%}">    <!--css dosyasini elave etmek-->
-    <title>Index</title>
+    <link rel="stylesheet" href="{%static 'style.css'%}">    <!--css dosyasini elave etmek-->
+    <title>
+        {%block page__title%} 
+
+        {%endblock page__title%}
+    </title>
 </head>
 <body>
-    {%block page_title%} 
-
-    {%endblock page_title%}
     
     {% block body %}
 
