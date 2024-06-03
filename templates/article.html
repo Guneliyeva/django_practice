@@ -8,15 +8,16 @@
     <title>Article</title>
   </head>
   <body>
-    <div class="Meqaleler">
+    <div class="article">
       <h1>Meqaleler</h1>
       <ul>
         {% for article in articles %}
         <li>
-          <h3>{{article.author}}</h3>
+          <h2>{{article.author}}</h2>
           <h4>{{article.title}}</h4>
           <p>{{article.description}}</p>
           <small>{{article.created_date}}</small>
+          <hr>
 
         </li>
 

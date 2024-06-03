@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+login
+
+{% endblock page_title %}
+
+{% block body %}
+<h1>Login</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}  <!--form dosyasinda yazdigim kodlari html tagine cevirir-->
+    <button class="loginbtn">Daxil ol</button>
+</form>
+
+{% endblock body %}

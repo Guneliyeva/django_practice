@@ -6,16 +6,88 @@
     list-style: none;
 }
 
-body {
+
+ body{
     background-color: teal;
+
 }
 
-h1 {
-    color: black;
+h1{
+    color: white;
     text-align: center;
 }
 
-a {
-    font-size: 30px; 
+.nav{
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    align-items: center;
+    
+}
+
+.nav_logo img{
+    width: 60px;
+    height: 60px;
+}
+
+.nav li{
+    color: black;
+    font-size: 30px;
+}
+
+.index h1{
+    text-align: center;
     color: white;
+    padding: 30px;
+}
+
+.lorem h2{
+    text-align: left;
+    color: white;
+}
+
+.lorem p{
+    font-size: 30px;
+}
+
+.account h1 {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px;
+}
+
+.btn{
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 20px 30px;
+    border-radius: 5px;
+    
+}
+
+.signupbtn, .loginbtn {
+    padding: 15px 20px;
+    background-color: #007bff;
+    cursor: pointer;
+
+}
+
+
+.article h1{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.article h2, small{
+    color: white
 }

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+signup
+
+{% endblock page_title %}
+
+
+{% block body %}
+<h1>Sign up</h1>
+
+<form method="post">
+    {% csrf_token %}  <!--security-->
+    {{form.as_p}}  <!--form dosyasinda yazdigim kodlari html tagine cevirir-->
+    <button class="signupbtn">Qeydiyyat</button>
+</form>
+
+{% endblock body %}
