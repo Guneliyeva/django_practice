@@ -21,7 +21,7 @@ from article.views import article_page
 from account.views import *
 
 urlpatterns = [
-    path("", home_page),
+    path("", home_page, name="home"),
     path('about/', include("home.urls")),
     path('article/', article_page,  name="article"),
     path('account/', include('account.urls'), name="account"),

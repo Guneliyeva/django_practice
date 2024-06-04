@@ -12,8 +12,12 @@ def account(request):
     return render(request, "account.html")
 
 
-def register(request):
-    # ya post metodunu almali ya da bos gondermeli
+def register(request): # ya post metodunu almali ya da bos gondermeli
+
+    if request.user.is_authenticated:  # Kullanıcı zaten oturum açmışsa
+        return redirect("home")  # Home sayfasına yönlendir
+
+
     form = RegisterForm(request.POST or None)
 
     if form.is_valid():  # eger kodda her sey dogrudursa username ve passwordun deyerlerini al
@@ -25,9 +29,9 @@ def register(request):
 
         newUser.save()  # new user ucun aldigin deyerleri databazaya daxil etmek
 
-    login(request, newUser)  # qeydiyyatdan kecen user avtomatik login olsun
+        login(request, newUser)  # qeydiyyatdan kecen user avtomatik login olsun
 
-    return redirect("home_page")  # qeyd kecen sexs home_page e yonlendirilir
+        return redirect("home")  # qeyd kecen sexs home_page e yonlendirilir
 
     context = {
         "form": form,
@@ -51,11 +55,11 @@ def login_page(request):
             return render(request, "login.html")
 
         login(request, user)
-        return redirect("home_page")
+        return redirect("home")
 
     return render(request, "login.html", context)
 
 
 def logout_page(request):
     logout(request)
-    return redirect("home_page")
+    return redirect("home")

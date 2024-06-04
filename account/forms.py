@@ -11,9 +11,10 @@ class RegisterForm(forms.Form):
     confirm = forms.CharField(max_length=8, label="password again:", widget=forms.PasswordInput())
 
     def clean(self):  # datalari alib yigmaq ucun
-        username = self.clean["username"]
-        password = self.clean["password"]
-        confirm = self.clean["confirm"]
+        cleaned_data = super().clean()  # super() ile temizlenmiş verileri al
+        username = cleaned_data.get("username")
+        password = cleaned_data.get("password")
+        confirm = cleaned_data.get("confirm")
 
         if password and confirm and password != confirm:   #xana bos buraxilmissa ve bir birine beraber deyilse
             raise forms.ValidationError("sifreler eyni deyil!")
