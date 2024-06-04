@@ -91,3 +91,92 @@ h1{
 .article h2, small{
     color: white
 }
+
+
+.alert__warning {
+    padding: 20px;
+    background-color: #ffcc00; 
+    color: #000; 
+    border-left: 6px solid #ff9900; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+}
+
+.alert__success {
+    padding: 20px;
+    background-color: #4CAF50; 
+    color: white;
+    border-left: 6px solid #3e8e41; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+}
+
+.alert {
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: black;
+    cursor: pointer;
+}
+
+.dropdown i {
+    font-size: 14px !important;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px !important;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

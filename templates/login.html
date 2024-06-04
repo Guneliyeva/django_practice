@@ -10,7 +10,15 @@ login
 <h1>Login</h1>
 <form method="post">
     {% csrf_token %}
-    {{form.as_p}}  <!--form dosyasinda yazdigim kodlari html tagine cevirir-->
+    {% comment %} {{form.as_p}}  <!--form dosyasinda yazdigim kodlari html tagine cevirir--> {% endcomment %}
+    <div class="form__group">
+        <label for="{{form.username.id_for_label}}">İstifadəçi adı</label>
+        {{form.username}}
+    </div>
+    <div class="form__group">
+        <label for="{{form.password.id_for_label}}">Şifrə</label>
+        {{form.password}}
+    </div>
     <button class="loginbtn">Daxil ol</button>
 </form>
 

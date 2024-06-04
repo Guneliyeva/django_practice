@@ -1,38 +1,90 @@
 {% extends "base.html" %}  <!--base.html de olan kodlari getir-->
-{% load static %}
-
+{% load static %} 
 
 {%block page__title%} 
-   Index
-{%endblock page__title%}
+Index 
+{%endblock page__title%} 
 
-{%block body%}    <!--kodlari dasimaq ucun-->
-<div class="index">
-    <nav class="nav">
-        <div class="nav_logo">
-            <img src="{% static 'logoimage.avif' %}" alt="">
+{% comment %} {% if messages%} <!--wiew da olan success mesajina istinat(warning)-->
+    {for message in messages %} 
+        {% if message.tag=="warning" %}
+           <div class="alert_warning">{{message}}</div>
+        {% else %}
+            <div class="alert_success">{{message}}</div>
+
+    {% endfor %} 
+{% else %}  {% endcomment %}
+{%block body%}  <!--kodlari dasimaq ucun-->
+    {% if messages %}
+      
+      {% for message in messages %}
+        {% if message.tags == "warning" %}
+            <div class="alert__warning">{{message}}</div>
+        {% else %}
+            <div class="alert__success">{{message}}</div>
+        {% endif %}
+      {% endfor %}
+        
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <div class="user__info">
+           <h2>Xoş gəldiniz, <span>{{request.user.username}}</span></h2>
         </div>
-        <li><a href="{%url 'about'%}">About</a> <br> </li>   <!--name tegi ile 'adlandirmaya' gore cagrilir url faylindan-->
-        <li><a href="{% url 'accounts:account' %}">Account</a> <br></li>
-        <li><a href="{% url 'article' %}">Articles</a> <br></li>
-    </nav>
+    {% else %}
+        <div class="user__info">
+           <h2>Giriş etməmisiz...</h2>
+        </div>
+    {% endif %}
 
-    <h1>Hi Guys</h1>
+<div class="index">
+  <nav class="nav">
+    <div class="nav_logo">
+      <img src="{% static 'logoimage.avif' %}" alt="" />
+    </div>
+    <li><a href="{%url 'about'%}">About</a> <br /></li>  <!--name tegi ile 'adlandirmaya' gore cagrilir url faylindan-->
+    
+                {% if request.user.is_authenticated %}
+                    <div class="dropdown">
+                        Məqalələr <i class="fa-solid fa-chevron-down"></i>
+                        <div class="dropdown-content">
+                          <a href="{% url 'our-blogs' %}">Məqalələrimiz</a>
+                          <a href="{% url 'my-blogs' %}">Məqalələrim</a>
+                        </div>
+                      </div>
+                    <li><a href="{% url 'accounts:logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Register</a></li>
+                {% endif %}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="{% url 'accounts:account' %}">Account</a> <br /></li>
+    <li><a href="{% url 'article' %}">Articles</a> <br /></li>
+  </nav>
 
-  
-{% comment %} 
-<a href="{% url 'about-details' %}">haqqimizda detallar</a> <br> 
-{% endcomment %}
+  <h1>Hi Guys</h1>
 
-
+  {% comment %}
+  <a href="{% url 'about-details' %}">haqqimizda detallar</a> <br />
+  {% endcomment %}
 </div>
-{% include 'include.html'%}    <!--eyni bir kodu her sehifede tekrarlamamaq qisa yol-->
+{% include 'include.html'%}
+<!--eyni bir kodu her sehifede tekrarlamamaq qisa yol-->
 
-
-{% comment %}    <!--html kodunu django ile yazanda kodu öldure bilmedikde-->
-    <!--jljcljdijjd-->
+{% comment %}
+<!--html kodunu django ile yazanda kodu öldure bilmedikde-->
+<!--jljcljdijjd-->
 {% endcomment %}
 
-<script src="{%static 'app.js'%}"></script> <!--js dosyasini tanimlama-->
+<script src="{%static 'app.js'%}"></script>
+<!--js dosyasini tanimlama-->
 
 {%endblock body%}

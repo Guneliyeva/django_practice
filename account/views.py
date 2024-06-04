@@ -2,8 +2,8 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User  # user qeydiyyat
-# user login #authenticate i yoxlamaq ucun
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout # user login #authenticate i yoxlamaq ucun
+from django.contrib import messages #alert mesaj vermek ucun
 
 # # Create your views here.
 
@@ -30,6 +30,7 @@ def register(request): # ya post metodunu almali ya da bos gondermeli
         newUser.save()  # new user ucun aldigin deyerleri databazaya daxil etmek
 
         login(request, newUser)  # qeydiyyatdan kecen user avtomatik login olsun
+        messages.success(request, "Qeydiyyatdan ugurla kecdiniz :D)")
 
         return redirect("home")  # qeyd kecen sexs home_page e yonlendirilir
 
@@ -55,6 +56,8 @@ def login_page(request):
             return render(request, "login.html")
 
         login(request, user)
+        messages.success(request, "Sehifenize ugurla daxil oldunuz :D)")
+
         return redirect("home")
 
     return render(request, "login.html", context)
